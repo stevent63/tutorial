@@ -1,9 +1,12 @@
 import express from 'express';
+import cloudDb from './cloudDb.js';
 import userRoutes from './routes/userRoutes.js'
 
 //initiate express
 const app = express();
 app.use(express.json());
+
+await cloudDb.connect();
 
 //routes
 app.get('/', (req, res) => {
